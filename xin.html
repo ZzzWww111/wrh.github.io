@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>小兔鲜儿 | 春日灵感 · 鲜活高级体验</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            font-family: "Inter", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", Roboto, "Helvetica Neue", sans-serif;
+        }
+
+        body {
+            background-color: #fefaf5;
+            scroll-behavior: smooth;
+        }
+
+        /* 顶部黑色导航栏 */
+        .top-bar {
+            width: 100%;
+            height: 44px;
+            background-color: #1e2a2e;
+            line-height: 44px;
+            text-align: right;
+            padding-right: 30px;
+            border-bottom: 1px solid #2d3e42;
+            position: relative;
+            z-index: 20;
+            font-size: 13px;
+        }
+
+        .top-bar a {
+            color: #e2e8f0;
+            margin: 0 12px;
+            transition: color 0.2s;
+            letter-spacing: 0.3px;
+        }
+
+        .top-bar a:hover {
+            color: #a3c9a8;
+        }
+
+        .top-bar i {
+            margin-right: 5px;
+        }
+
+        /* 头部区域 */
+        .header {
+            width: 100%;
+            background: #ffffff;
+            border-bottom: 1px solid #f0ebe2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            min-height: 96px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            gap: 24px;
+            position: relative;
+            z-index: 15;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            gap: 12px;
+        }
+
+        .logo img {
+            width: 58px;
+            height: 58px;
+            border-radius: 20px;
+            background: #eef5e8;
+            padding: 6px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.02);
+        }
+
+        .logo-text h1 {
+            font-size: 26px;
+            color: #2c4b35;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            color: #7b8a6f;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            flex: 2;
+        }
+
+        .nav-photo-slot {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #f0f7ed, #e2ecdc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            cursor: pointer;
+            overflow: hidden;
+            border: 1px solid #d4e2ca;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 28px;
+            flex-wrap: nowrap;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            color: #2c4b35;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 6px 0;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .main-nav a:hover,
+        .main-nav .active a {
+            color: #6f9e7c;
+        }
+
+        .main-nav .active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2.5px;
+            background: #6f9e7c;
+            border-radius: 2px;
+        }
+
+        .right-tools {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .search-box {
+            width: 240px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            padding: 6px 4px;
+            transition: 0.2s;
+        }
+
+        .search-box:focus-within {
+            border-bottom-color: #8bc6a3;
+        }
+
+        .search-box i {
+            color: #94a3b8;
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 14px;
+        }
+
+        .cart {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart i {
+            font-size: 26px;
+            color: #2c4b35;
+            transition: 0.2s;
+        }
+
+        .cart:hover i {
+            color: #6f9e7c;
+        }
+
+        .cart .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -12px;
+            background: #e67e22;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            min-width: 18px;
+            height: 18px;
+            line-height: 18px;
+            text-align: center;
+            border-radius: 30px;
+            padding: 0 5px;
+        }
+
+        @media (max-width: 1200px) {
+            .header {
+                padding: 0 24px;
+                gap: 16px;
+            }
+
+            .main-nav ul {
+                gap: 18px;
+            }
+
+            .search-box {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .header {
+                flex-wrap: wrap;
+                padding: 14px 20px;
+            }
+
+            .nav-wrapper {
+                order: 2;
+                flex-basis: 100%;
+                margin-top: 10px;
+            }
+
+            .right-tools {
+                order: 1;
+                margin-left: auto;
+            }
+
+            .main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px;
+            }
+        }
+
+        /* 主体区域 */
+        .main-content {
+            max-width: 1600px;
+            margin: 30px auto 0;
+            display: flex;
+            background: transparent;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 38px -14px rgba(0, 0, 0, 0.06);
+        }
+
+        .left-category {
+            width: 280px;
+            background: #253b32;
+            color: #f0ede5;
+            padding: 20px 0;
+            flex-shrink: 0;
+            border-right: 1px solid #3d5a4c;
+        }
+
+        .category-item {
+            height: 56px;
+            padding: 0 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.25s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .category-item:hover {
+            background: #3a5c4c;
+            padding-left: 32px;
+            color: #fff7e8;
+        }
+
+        .category-item .sub-text {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-left: 10px;
+        }
+
+        .category-item .arrow {
+            font-size: 16px;
+            opacity: 0.6;
+            transition: 0.2s;
+        }
+
+        .category-item:hover .arrow {
+            transform: translateX(5px);
+            opacity: 1;
+        }
+
+        /* ========= 轮播区 - 全新明亮高级风格 ========= */
+        .carousel-container {
+            flex: 1;
+            position: relative;
+            background: #fef7ea;
+            overflow: hidden;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* 明亮通透的渐变叠加层 - 让图片更鲜亮，文字更清晰 */
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(105deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.08) 60%, rgba(0, 0, 0, 0.02) 100%);
+            z-index: 1;
+        }
+
+        /* 暖光晕效果 - 增加活力感 */
+        .carousel-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 40%, rgba(255, 245, 200, 0.22) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 10;
+            margin-left: 80px;
+            max-width: 620px;
+            background: rgba(255, 255, 248, 0.92);
+            backdrop-filter: blur(20px);
+            border-radius: 48px;
+            padding: 44px 56px 52px;
+            box-shadow: 0 30px 45px -20px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 245, 215, 0.8);
+            transition: 0.3s;
+        }
+
+        .slide-content:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 252, 0.96);
+            box-shadow: 0 35px 50px -18px rgba(0, 0, 0, 0.2);
+        }
+
+        .en-title {
+            font-size: 46px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: #c68642;
+            position: relative;
+            display: inline-block;
+        }
+
+        .en-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: #f0bc7c;
+            border-radius: 4px;
+        }
+
+        .cn-title {
+            font-size: 66px;
+            font-weight: 800;
+            margin: 32px 0 16px;
+            color: #3a5a48;
+            letter-spacing: 5px;
+        }
+
+        .desc {
+            font-size: 17px;
+            font-weight: 500;
+            margin-bottom: 28px;
+            color: #b47c44;
+            background: rgba(245, 235, 210, 0.7);
+            display: inline-block;
+            padding: 6px 24px;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+        }
+
+        .date {
+            font-size: 13px;
+            color: #b89a6a;
+            margin-bottom: 44px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .go-btn {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e6b17e, #d49654);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 12px 20px -8px rgba(100, 60, 20, 0.25);
+        }
+
+        .go-btn:hover {
+            transform: scale(1.05) rotate(3deg);
+            background: #f0bc7c;
+            color: #2c4b35;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 245, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            font-size: 26px;
+            color: #c68642;
+            transition: 0.2s;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(220, 195, 150, 0.5);
+        }
+
+        .carousel-btn:hover {
+            background: #f0bc7c;
+            color: white;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .btn-prev {
+            left: 28px;
+        }
+
+        .btn-next {
+            right: 28px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 28px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            z-index: 20;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(150, 120, 80, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .dot.active {
+            width: 28px;
+            background: #d49654;
+            border-radius: 12px;
+        }
+
+        /* 全局区块 */
+        .product-section {
+            max-width: 1600px;
+            margin: 70px auto 0;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .section-title h2 {
+            font-size: 44px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #2c4b35, #5d7b5a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #cbdaae;
+            margin: 18px auto 0;
+            border-radius: 4px;
+        }
+
+        /* 春日精选 网格 */
+        .spring-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 42px;
+        }
+
+        @media (max-width: 1000px) {
+            .spring-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .spring-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .spring-card {
+            background: white;
+            border-radius: 40px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 24px 34px -12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f1e8db;
+        }
+
+        .spring-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 36px 48px -16px rgba(70, 90, 60, 0.2);
+            border-color: #dbcfb8;
+        }
+
+        .spring-img {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: transform 0.3s ease;
+        }
+
+        .spring-card:hover .spring-img {
+            transform: scale(1.02);
+        }
+
+        .spring-info {
+            padding: 26px 24px 32px;
+            text-align: center;
+        }
+
+        .spring-info .product-name {
+            font-size: 22px;
+            font-weight: 800;
+            color: #2c4b35;
+            margin-bottom: 10px;
+        }
+
+        .spring-info .product-desc {
+            font-size: 14px;
+            color: #8a9a78;
+            margin-bottom: 20px;
+        }
+
+        .spring-price {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .current-price {
+            font-size: 30px;
+            font-weight: 800;
+            color: #e67e22;
+        }
+
+        .old-price {
+            font-size: 16px;
+            color: #bfbba8;
+            text-decoration: line-through;
+        }
+
+        .spring-btn {
+            background: linear-gradient(135deg, #789f78, #5b805b);
+            border: none;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .spring-btn:hover {
+            background: #e67e22;
+            transform: scale(1.02);
+            letter-spacing: 0.5px;
+        }
+
+        /* 服饰馆 */
+        .fashion-hero {
+            background: #fef7ef;
+            border-radius: 56px;
+            margin-top: 40px;
+            overflow: visible;
+            box-shadow: 0 24px 38px -14px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f0e4d2;
+            position: relative;
+        }
+
+        .fashion-split {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .fashion-hero-left {
+            flex: 1.2;
+            background: linear-gradient(125deg, #2d3e35, #1e2c26);
+            padding: 52px 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 480px;
+        }
+
+        .fashion-hero-left .hero-badge {
+            background: #e6b17e;
+            display: inline-block;
+            padding: 6px 22px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #2c2b1f;
+            width: fit-content;
+            margin-bottom: 28px;
+        }
+
+        .fashion-hero-left h2 {
+            font-size: 52px;
+            font-weight: 800;
+            color: #fff3e4;
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
+
+        .fashion-hero-left .hero-desc {
+            color: #d9d2bd;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .hero-cta {
+            background: #f0bc7c;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 18px;
+            color: #2c2b1f;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            width: fit-content;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .hero-cta:hover {
+            background: #ffcd94;
+            transform: translateX(6px);
+        }
+
+        .fashion-hero-right {
+            flex: 1;
+            background: white;
+            padding: 44px 36px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .category-tag {
+            font-size: 13px;
+            color: #b6a582;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .right-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .fashion-row-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f0e5d8;
+            padding-bottom: 16px;
+            transition: all 0.25s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .fashion-row-item:hover {
+            transform: translateX(6px);
+            border-bottom-color: #cbdaae;
+            background: rgba(203, 218, 174, 0.08);
+            border-radius: 20px;
+            padding: 12px 12px;
+            margin: 0 -12px;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-info h4 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #2c4b35;
+        }
+
+        .item-info p {
+            font-size: 13px;
+            color: #9faa92;
+            margin-top: 6px;
+        }
+
+        .item-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: #e67e22;
+            white-space: nowrap;
+            margin-left: 20px;
+        }
+
+        .item-price small {
+            font-size: 13px;
+            text-decoration: line-through;
+            color: #bcb49c;
+            margin-left: 8px;
+        }
+
+        .hover-preview-card {
+            position: absolute;
+            top: 50%;
+            right: -260px;
+            transform: translateY(-50%);
+            width: 220px;
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 12px;
+            box-shadow: 0 28px 42px -12px rgba(0, 0, 0, 0.3);
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s, transform 0.2s;
+            pointer-events: none;
+            border: 1px solid rgba(220, 195, 150, 0.6);
+        }
+
+        .fashion-row-item:hover .hover-preview-card {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-50%) translateX(-8px);
+        }
+
+        .preview-img-full {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            background-color: #f5efe3;
+        }
+
+        .preview-info-text {
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .preview-info-text .p-name {
+            font-weight: 700;
+            font-size: 14px;
+            color: #3a5a48;
+        }
+
+        .preview-info-text .p-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: #e67e22;
+            margin-top: 4px;
+        }
+
+        @media (max-width: 1400px) {
+            .hover-preview-card {
+                right: -220px;
+                width: 200px;
+            }
+
+            .preview-img-full {
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .hover-preview-card {
+                right: auto;
+                left: 105%;
+                width: 180px;
+            }
+
+            .preview-img-full {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .fashion-split {
+                flex-direction: column;
+            }
+
+            .fashion-hero-left {
+                text-align: center;
+                align-items: center;
+                min-height: 360px;
+            }
+
+            .hero-cta {
+                margin: 0 auto;
+            }
+
+            .hover-preview-card {
+                left: 70%;
+                width: 170px;
+            }
+        }
+
+        .fashion-all-link {
+            margin-top: 38px;
+            text-align: right;
+            font-weight: 600;
+            color: #6f9e7c;
+            cursor: pointer;
+        }
+
+        /* 家居馆 */
+        .home-scroll {
+            background: linear-gradient(115deg, #f3efe5, #fcf9f2);
+            border-radius: 56px;
+            margin-top: 60px;
+            padding: 52px 36px 60px;
+            border: 1px solid #e9dfcf;
+        }
+
+        .home-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            margin-bottom: 42px;
+            padding-bottom: 18px;
+            border-bottom: 2px solid #ded3c0;
+        }
+
+        .home-title h3 {
+            font-size: 38px;
+            font-weight: 800;
+            color: #3f5a4b;
+        }
+
+        .home-title p {
+            font-size: 14px;
+            color: #b09b7c;
+            margin-top: 8px;
+        }
+
+        .home-badge {
+            background: #e6c394;
+            padding: 8px 30px;
+            border-radius: 60px;
+            font-weight: 700;
+            color: #2c3e2b;
+            font-size: 18px;
+        }
+
+        .scroll-x {
+            overflow-x: auto;
+            scrollbar-width: thin;
+            padding-bottom: 12px;
+        }
+
+        .scroll-x::-webkit-scrollbar {
+            height: 6px;
+            background: #e2d6c4;
+            border-radius: 12px;
+        }
+
+        .scroll-x::-webkit-scrollbar-thumb {
+            background: #b09b7c;
+            border-radius: 12px;
+        }
+
+        .home-row {
+            display: flex;
+            gap: 36px;
+            width: max-content;
+        }
+
+        .home-card {
+            width: 330px;
+            background: rgba(255, 255, 245, 0.96);
+            backdrop-filter: blur(3px);
+            border-radius: 44px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid #f2e6d6;
+        }
+
+        .home-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            background: white;
+            box-shadow: 0 30px 40px -12px rgba(0, 0, 0, 0.18);
+        }
+
+        .home-img {
+            height: 270px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: transform 0.3s;
+        }
+
+        .home-card:hover .home-img {
+            transform: scale(1.02);
+        }
+
+        .home-info {
+            padding: 24px 22px 28px;
+        }
+
+        .home-info .product-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: #2c4b35;
+        }
+
+        .home-info .product-spec {
+            font-size: 13px;
+            color: #8b7a60;
+            margin: 8px 0;
+        }
+
+        .home-price {
+            font-size: 28px;
+            font-weight: 800;
+            color: #e67e22;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+        }
+
+        .home-add {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #6f9e7c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .home-add:hover {
+            background: #e67e22;
+            transform: rotate(90deg);
+        }
+
+        /* 美食馆 */
+        .gourmet-gallery {
+            background: #ffffff;
+            border-radius: 56px;
+            padding: 52px 44px;
+            margin-top: 60px;
+            border: 1px solid #f3e9dc;
+        }
+
+        .gourmet-gallery .section-mini-title {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .gourmet-gallery .section-mini-title h3 {
+            font-size: 44px;
+            background: linear-gradient(135deg, #bc7a3a, #e09d5e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        .gourmet-gallery .section-mini-title p {
+            color: #b69060;
+            margin-top: 12px;
+            letter-spacing: 2px;
+        }
+
+        .gourmet-flex {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 36px;
+        }
+
+        .gourmet-block {
+            background: #fefaf2;
+            border-radius: 36px;
+            padding: 28px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            transition: 0.35s;
+            border: 1px solid #efe0cf;
+        }
+
+        .gourmet-block:hover {
+            background: #fffcf5;
+            transform: translateY(-8px);
+        }
+
+        .gourmet-img {
+            width: 110px;
+            height: 110px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 36px;
+            background-color: #f5ebdd;
+        }
+
+        .gourmet-text {
+            flex: 1;
+        }
+
+        .gourmet-text .g-name {
+            font-size: 22px;
+            font-weight: 800;
+            color: #4a6b55;
+        }
+
+        .gourmet-text .g-spec {
+            font-size: 13px;
+            color: #a99170;
+            margin: 6px 0;
+        }
+
+        .gourmet-price-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+        }
+
+        .g-price {
+            font-size: 28px;
+            font-weight: 800;
+            color: #d46b1a;
+        }
+
+        .g-add {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #6f9e7c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .g-add:hover {
+            background: #e67e22;
+            transform: rotate(90deg);
+        }
+
+        @media (max-width: 800px) {
+            .gourmet-flex {
+                grid-template-columns: 1fr;
+            }
+
+            .home-card {
+                width: 280px;
+            }
+        }
+
+        /* 社区晒单 */
+        .community-showcase {
+            background: #fffaf2;
+            border-radius: 56px;
+            margin-top: 70px;
+            padding: 56px 44px;
+            box-shadow: 0 24px 36px -12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f0e4d2;
+        }
+
+        .community-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .community-header .badge {
+            background: #e6c39420;
+            color: #bc7a3a;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .community-header h3 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #2c4b35;
+        }
+
+        .community-header p {
+            color: #8f9a82;
+            margin-top: 12px;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .community-card {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f1e6d8;
+        }
+
+        .community-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 28px 36px -12px rgba(0, 0, 0, 0.12);
+        }
+
+        .user-img {
+            width: 100%;
+            height: 260px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .user-badge {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-content {
+            padding: 20px 22px 24px;
+        }
+
+        .review-text {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #4a5b44;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        .review-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0e4d2;
+            padding-top: 16px;
+            margin-top: 8px;
+        }
+
+        .likes {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #e67e22;
+            font-weight: 600;
+        }
+
+        .views {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #9aa78b;
+            font-size: 13px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .avatar {
+            width: 36px;
+            height: 36px;
+            background: #e9dfcf;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #6f9e7c;
+            font-size: 18px;
+        }
+
+        .name-time {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c4b35;
+        }
+
+        .name-time span {
+            font-size: 11px;
+            font-weight: normal;
+            color: #b6a582;
+            display: block;
+        }
+
+        @media (max-width: 1000px) {
+            .community-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 页脚 */
+        .footer {
+            background: #1e2a2e;
+            color: #e2e8f0;
+            margin-top: 80px;
+            padding: 56px 40px 32px;
+        }
+
+        .footer-container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+            border-bottom: 1px solid #3a4a44;
+            padding-bottom: 48px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #f7f3ea;
+            margin-bottom: 28px;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 14px;
+        }
+
+        .footer-col ul li a {
+            color: #cbd5c0;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #a3c9a8;
+            padding-left: 4px;
+        }
+
+        .service-hotline {
+            font-size: 30px;
+            font-weight: 800;
+            color: #e6b17e;
+            margin-bottom: 8px;
+        }
+
+        .work-time {
+            font-size: 12px;
+            color: #9aa999;
+            margin-bottom: 22px;
+        }
+
+        .wechat-qr {
+            display: flex;
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .qr-item {
+            text-align: center;
+        }
+
+        .qr-placeholder {
+            width: 96px;
+            height: 96px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            backdrop-filter: blur(2px);
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding-top: 32px;
+            font-size: 13px;
+            color: #9aa999;
+        }
+
+        .footer-links a {
+            color: #cbd5c0;
+            margin: 0 14px;
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: #a3c9a8;
+        }
+
+        .copyright {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 12px;
+            color: #7e8c7a;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 1000px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 36px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 14px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <a href="#"><i class="fas fa-sign-in-alt"></i> 请先登录</a>
+        <a href="#"><i class="fas fa-user-plus"></i> 免费注册</a>
+        <a href="#"><i class="fas fa-clipboard-list"></i> 我的订单</a>
+        <a href="#"><i class="fas fa-crown"></i> 会员中心</a>
+        <a href="#"><i class="fas fa-headset"></i> 帮助中心</a>
+        <a href="#"><i class="fas fa-comments"></i> 在线客服</a>
+        <a href="#"><i class="fas fa-mobile-alt"></i> 手机版</a>
+    </div>
+
+    <div class="header">
+        <div class="logo">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236f9e7c'/%3E%3Cpath fill='%23fff' d='M32,40 L68,40 L68,48 L32,48 Z M32,54 L58,54 L58,62 L32,62 Z'/%3E%3C/svg%3E"
+                alt="logo">
+            <div class="logo-text">
+                <h1>小兔鲜儿</h1>
+                <p>新鲜 · 亲民 · 快捷</p>
+            </div>
+        </div>
+        <div class="nav-wrapper">
+            <div class="nav-photo-slot"><img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23fff0dc'/%3E%3Ccircle cx='50' cy='42' r='20' fill='%23b98f5f'/%3E%3Cpath d='M30 72 L70 72 L64 82 L36 82 Z' fill='%23dbb47a'/%3E%3C/svg%3E"
+                    alt="avatar"></div>
+            <div class="main-nav">
+                <ul>
+                    <li class="active"><a>首页</a></li>
+                    <li><a>生鲜</a></li>
+                    <li><a>美食</a></li>
+                    <li><a>餐厨</a></li>
+                    <li><a>电器</a></li>
+                    <li><a>家居</a></li>
+                    <li><a>洗护</a></li>
+                    <li><a>孕婴</a></li>
+                    <li><a>服装</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-tools">
+            <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="搜一搜 春日限定"></div>
+            <div class="cart"><i class="fas fa-shopping-cart"></i><span class="cart-count">22</span></div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="left-category">
+            <div class="category-item"><span>🍎 生鲜果蔬 <span class="sub-text">水果 蔬菜</span></span><span
+                    class="arrow">›</span></div>
+            <div class="category-item"><span>🍞 美食推荐 <span class="sub-text">面包 干果</span></span><span
+                    class="arrow">›</span></div>
+            <div class="category-item"><span>📱 数码电子 <span class="sub-text">手机 电脑</span></span><span
+                    class="arrow">›</span></div>
+            <div class="category-item"><span>📺 家庭电器 <span class="sub-text">电视 冰箱</span></span><span
+                    class="arrow">›</span></div>
+            <div class="category-item"><span>🍳 厨房用品 <span class="sub-text">厨房电器 餐具</span></span><span
+                    class="arrow">›</span></div>
+            <div class="category-item"><span>🛋️ 居家生活 <span class="sub-text">床品 四件套</span></span><span
+                    class="arrow">›</span></div>
+            <div class="category-item"><span>💄 洗护美妆 <span class="sub-text">洗发 洁面</span></span><span
+                    class="arrow">›</span></div>
+            <div class="category-item"><span>🍼 孕婴用品 <span class="sub-text">奶粉 玩具</span></span><span
+                    class="arrow">›</span></div>
+            <div class="category-item"><span>👗 服饰穿搭 <span class="sub-text">女装 男装</span></span><span
+                    class="arrow">›</span></div>
+            <div class="category-item"><span>🧴 日用杂货 <span class="sub-text">清洁 收纳 纸品</span></span><span
+                    class="arrow">›</span></div>
+            <div class="category-item"><span>🏕️ 户外运动 <span class="sub-text">露营 健身 骑行</span></span><span
+                    class="arrow">›</span></div>
+            <div class="category-item"><span>📚 图书文娱 <span class="sub-text">小说 经管 童书</span></span><span
+                    class="arrow">›</span></div>
+        </div>
+
+        <!-- 轮播区：三张高级明快风格图片 -->
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-slides" id="carouselSlides">
+                        <div class="carousel-item" style="background-image: url('photo/魅力早春.jpg');">
+                            <div class="slide-content">
+                                <div class="en-title">SPRING<br>REVERIE</div>
+                                <div class="cn-title">魅力早春</div>
+                                <div class="desc">✦ 寻味自然 鲜活上新 ✦</div>
+                                <div class="date">2025 · 早春灵感系列</div>
+                                <div class="go-btn">GO →</div>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="background-image: url('photo/果园直送.jpg');">
+                            <div class="slide-content">
+                                <div class="en-title">ORCHARD<br>FRESH</div>
+                                <div class="cn-title">果园直送</div>
+                                <div class="desc">🍊 枝头到餐桌 24h直达</div>
+                                <div class="date">新鲜采摘 · 自然甜</div>
+                                <div class="go-btn">尝鲜 →</div>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="background-image: url('photo/有机生活.jpg');">
+                            <div class="slide-content">
+                                <div class="en-title">PURE<br>ORGANIC</div>
+                                <div class="cn-title">有机生活</div>
+                                <div class="desc">🌱 纯净食材 自然之选</div>
+                                <div class="date">永续生态农法</div>
+                                <div class="go-btn">探索 →</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-btn btn-prev" id="prevBtn"><i class="fas fa-chevron-left"></i></div>
+                <div class="carousel-btn btn-next" id="nextBtn"><i class="fas fa-chevron-right"></i></div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 春日精选 -->
+    <div class="product-section">
+        <div class="section-title">
+            <h2>🌿 春日精选 · 限定风物</h2>
+        </div>
+        <div class="spring-grid">
+            <div class="spring-card">
+                <div class="spring-img" style="background-image: url('photo/草莓.jpg');"></div>
+                <div class="spring-info">
+                    <div class="product-name">丹东99红颜草莓</div>
+                    <div class="product-desc">当季头茬，浓香蜜甜，颗颗饱满</div>
+                    <div class="spring-price"><span class="current-price">¥39.9</span><span
+                            class="old-price">¥59.9</span></div>
+                    <div class="spring-btn"><i class="fas fa-shopping-bag"></i> 立即抢购</div>
+                </div>
+            </div>
+            <div class="spring-card">
+                <div class="spring-img" style="background-image: url('photo/车厘子.jpg');"></div>
+                <div class="spring-info">
+                    <div class="product-name">智利进口车厘子JJJ级</div>
+                    <div class="product-desc">巨无霸果径，脆甜爆汁，空运直达</div>
+                    <div class="spring-price"><span class="current-price">¥89.9</span><span
+                            class="old-price">¥129.9</span></div>
+                    <div class="spring-btn"><i class="fas fa-shopping-bag"></i> 立即抢购</div>
+                </div>
+            </div>
+            <div class="spring-card">
+                <div class="spring-img" style="background-image: url('photo/葡萄.jpg');"></div>
+                <div class="spring-info">
+                    <div class="product-name">晴王阳光玫瑰葡萄</div>
+                    <div class="product-desc">青提贵族，花香馥郁，无籽脆爽</div>
+                    <div class="spring-price"><span class="current-price">¥59.9</span><span
+                            class="old-price">¥89.9</span></div>
+                    <div class="spring-btn"><i class="fas fa-shopping-bag"></i> 立即抢购</div>
+                </div>
+            </div>
+            <div class="spring-card">
+                <div class="spring-img" style="background-image: url('photo/蓝莓.jpg');"></div>
+                <div class="spring-info">
+                    <div class="product-name">云南高山蓝莓</div>
+                    <div class="product-desc">新鲜大果，花青素满满，护眼佳品</div>
+                    <div class="spring-price"><span class="current-price">¥29.9</span><span
+                            class="old-price">¥45.9</span></div>
+                    <div class="spring-btn"><i class="fas fa-shopping-bag"></i> 立即抢购</div>
+                </div>
+            </div>
+            <div class="spring-card">
+                <div class="spring-img" style="background-image: url('photo/贝贝南瓜.jpg');"></div>
+                <div class="spring-info">
+                    <div class="product-name">正宗贝贝南瓜</div>
+                    <div class="product-desc">板栗口感，粉糯香甜，轻食代餐</div>
+                    <div class="spring-price"><span class="current-price">¥19.9</span><span
+                            class="old-price">¥29.9</span></div>
+                    <div class="spring-btn"><i class="fas fa-shopping-bag"></i> 立即抢购</div>
+                </div>
+            </div>
+            <div class="spring-card">
+                <div class="spring-img" style="background-image: url('photo/甜瓜.jpg');"></div>
+                <div class="spring-info">
+                    <div class="product-name">海南玉菇甜瓜</div>
+                    <div class="product-desc">冰激凌口感，软糯多汁，自然成熟</div>
+                    <div class="spring-price"><span class="current-price">¥32.9</span><span
+                            class="old-price">¥49.9</span></div>
+                    <div class="spring-btn"><i class="fas fa-shopping-bag"></i> 立即抢购</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 服饰馆 -->
+    <div class="product-section">
+        <div class="fashion-hero">
+            <div class="fashion-split">
+                <div class="fashion-hero-left"><span class="hero-badge">SS 2025 早春系列</span>
+                    <h2>春日风尚<br>极简与浪漫</h2>
+                    <p class="hero-desc">轻盈面料 · 高级剪裁 · 诠释春日慵懒美学</p>
+                    <div class="hero-cta">探索全系列 <i class="fas fa-arrow-right"></i></div>
+                </div>
+                <div class="fashion-hero-right"><span class="category-tag">✦ 当季热卖 ✦</span>
+                    <div class="right-grid">
+                        <div class="fashion-row-item">
+                            <div class="item-info">
+                                <h4>法式复古双面呢大衣</h4>
+                                <p>羊毛混纺 · 优雅驼色</p>
+                            </div>
+                            <div class="item-price">¥899 <small>¥1899</small></div>
+                            <div class="hover-preview-card">
+                                <div class="preview-img-full" style="background-image: url('photo/大衣.jpg');"></div>
+                                <div class="preview-info-text">
+                                    <div class="p-name">法式复古双面呢大衣</div>
+                                    <div class="p-price">¥899</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fashion-row-item">
+                            <div class="item-info">
+                                <h4>新中式提花连衣裙</h4>
+                                <p>桑蚕丝质感 · 国风刺绣</p>
+                            </div>
+                            <div class="item-price">¥569 <small>¥1299</small></div>
+                            <div class="hover-preview-card">
+                                <div class="preview-img-full" style="background-image: url('photo/裙子.jpg');"></div>
+                                <div class="preview-info-text">
+                                    <div class="p-name">新中式提花连衣裙</div>
+                                    <div class="p-price">¥569</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fashion-row-item">
+                            <div class="item-info">
+                                <h4>新疆棉长袖T恤</h4>
+                                <p>亲肤透气 · 多色可选</p>
+                            </div>
+                            <div class="item-price">¥99 <small>¥199</small></div>
+                            <div class="hover-preview-card">
+                                <div class="preview-img-full" style="background-image: url('photo/长袖.jpg');"></div>
+                                <div class="preview-info-text">
+                                    <div class="p-name">新疆棉长袖T恤</div>
+                                    <div class="p-price">¥99</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fashion-row-item">
+                            <div class="item-info">
+                                <h4>垂感阔腿西装裤</h4>
+                                <p>高腰显瘦 · 通勤必备</p>
+                            </div>
+                            <div class="item-price">¥189 <small>¥369</small></div>
+                            <div class="hover-preview-card">
+                                <div class="preview-img-full" style="background-image: url('photo/长裤.jpg');"></div>
+                                <div class="preview-info-text">
+                                    <div class="p-name">垂感阔腿西装裤</div>
+                                    <div class="p-price">¥189</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fashion-row-item">
+                            <div class="item-info">
+                                <h4>百搭棒球帽</h4>
+                                <p>日系复古 · 遮阳时髦</p>
+                            </div>
+                            <div class="item-price">¥59</div>
+                            <div class="hover-preview-card">
+                                <div class="preview-img-full" style="background-image: url('photo/帽子.jpg');"></div>
+                                <div class="preview-info-text">
+                                    <div class="p-name">百搭棒球帽</div>
+                                    <div class="p-price">¥59</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fashion-all-link">查看全部商品 <i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 家居生活馆 -->
+    <div class="product-section">
+        <div class="home-scroll">
+            <div class="home-header">
+                <div class="home-title">
+                    <h3>🪑 家居生活馆 · 灵感栖居</h3>
+                    <p>自然质感 | 设计美学 | 春日焕新</p>
+                </div>
+                <div class="home-badge">限时特惠 8折起</div>
+            </div>
+            <div class="scroll-x">
+                <div class="home-row">
+                    <div class="home-card">
+                        <div class="home-img" style="background-image: url('photo/沙发.jpg');"></div>
+                        <div class="home-info">
+                            <div class="product-name">云朵懒人沙发</div>
+                            <div class="product-spec">北欧极简 · 高弹海绵</div>
+                            <div class="home-price">¥899 <div class="home-add"><i class="fas fa-plus"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-card">
+                        <div class="home-img" style="background-image: url('photo/盆栽.jpg');"></div>
+                        <div class="home-info">
+                            <div class="product-name">马醉木鲜切枝</div>
+                            <div class="product-spec">水培绿植 · 高级感</div>
+                            <div class="home-price">¥79 <div class="home-add"><i class="fas fa-plus"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-card">
+                        <div class="home-img" style="background-image: url('photo/香薰.jpg');"></div>
+                        <div class="home-info">
+                            <div class="product-name">藤条香薰礼盒</div>
+                            <div class="product-spec">白茶/海盐鼠尾草</div>
+                            <div class="home-price">¥189 <div class="home-add"><i class="fas fa-plus"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-card">
+                        <div class="home-img" style="background-image: url('photo/篮子.jpg');"></div>
+                        <div class="home-info">
+                            <div class="product-name">手工藤编收纳篮</div>
+                            <div class="product-spec">自然藤条 · 大容量</div>
+                            <div class="home-price">¥129 <div class="home-add"><i class="fas fa-plus"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-card">
+                        <div class="home-img" style="background-image: url('photo/咖啡机.jpg');"></div>
+                        <div class="home-info">
+                            <div class="product-name">手冲咖啡壶套装</div>
+                            <div class="product-spec">复古胡桃木礼盒</div>
+                            <div class="home-price">¥359 <div class="home-add"><i class="fas fa-plus"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 美食馆 -->
+    <div class="product-section">
+        <div class="gourmet-gallery">
+            <div class="section-mini-title">
+                <h3>🍰 美食馆 · 甜蜜甄选</h3>
+                <p>匠心手作 · 限时满赠</p>
+            </div>
+            <div class="gourmet-flex">
+                <div class="gourmet-block">
+                    <div class="gourmet-img" style="background-image: url('photo/大福.jpg');"></div>
+                    <div class="gourmet-text">
+                        <div class="g-name">秘制外皮五福摩提大福</div>
+                        <div class="g-spec">150g/盒 · 日式糯心</div>
+                        <div class="gourmet-price-line"><span class="g-price">¥149</span>
+                            <div class="g-add"><i class="fas fa-plus"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gourmet-block">
+                    <div class="gourmet-img" style="background-image: url('photo/柚子茶.jpg');"></div>
+                    <div class="gourmet-text">
+                        <div class="g-name">韩国蜂蜜柚子茶</div>
+                        <div class="g-spec">560g/瓶 · 清新果酱</div>
+                        <div class="gourmet-price-line"><span class="g-price">¥149</span>
+                            <div class="g-add"><i class="fas fa-plus"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gourmet-block">
+                    <div class="gourmet-img" style="background-image: url('photo/巧克力.jpg');"></div>
+                    <div class="gourmet-text">
+                        <div class="g-name">比利时巧克力礼盒</div>
+                        <div class="g-spec">205g/盒 · 浓情丝滑</div>
+                        <div class="gourmet-price-line"><span class="g-price">¥149</span>
+                            <div class="g-add"><i class="fas fa-plus"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gourmet-block">
+                    <div class="gourmet-img" style="background-image: url('photo/蛋糕.jpg');"></div>
+                    <div class="gourmet-text">
+                        <div class="g-name">抹茶奶油小蛋糕</div>
+                        <div class="g-spec">220g/盒 · 清新抹茶</div>
+                        <div class="gourmet-price-line"><span class="g-price">¥149</span>
+                            <div class="g-add"><i class="fas fa-plus"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 最新专题：真实晒图（含姓名学号） -->
+    <div class="product-section">
+        <div class="community-showcase">
+            <div class="community-header">
+                <div class="badge">📸 最新专题 · 真实晒单</div>
+                <h3>#小兔鲜儿·春日食光</h3>
+                <p>看看大家都在吃什么 · 用心分享每一口新鲜</p>
+            </div>
+            <div class="community-grid">
+                <div class="community-card">
+                    <div class="user-img" style="background-image: url('photo/草莓晒图.jpg');"></div>
+                    <div class="card-content">
+                        <div class="user-info">
+                            <div class="avatar">🍓</div>
+                            <div class="name-time">糖糖小食光<span>2小时前 · 已购</span></div>
+                        </div>
+                        <div class="review-text">“丹东草莓也太甜了吧！个头超大，一口爆汁，全家人都夸买对了！”</div>
+                        <div class="review-stats">
+                            <div class="likes"><i class="fas fa-heart"></i> 1.2w</div>
+                            <div class="views"><i class="fas fa-eye"></i> 3.4w次浏览</div>
+                            <div class="likes"><i class="fas fa-comment"></i> 289</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="community-card">
+                    <div class="user-img" style="background-image: url('photo/车厘子晒图.jpg');"></div>
+                    <div class="card-content">
+                        <div class="user-info">
+                            <div class="avatar">🍒</div>
+                            <div class="name-time">樱桃姐姐zZ<span>昨天 · 果粉</span></div>
+                        </div>
+                        <div class="review-text">“智利车厘子YYDS！脆甜多汁，个头均匀，冷链包装非常新鲜，无限回购！”</div>
+                        <div class="review-stats">
+                            <div class="likes"><i class="fas fa-heart"></i> 8650</div>
+                            <div class="views"><i class="fas fa-eye"></i> 2.1w次浏览</div>
+                            <div class="likes"><i class="fas fa-comment"></i> 143</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="community-card">
+                    <div class="user-img" style="background-image: url('photo/葡萄晒图.jpg');"></div>
+                    <div class="card-content">
+                        <div class="user-info">
+                            <div class="avatar">🍇</div>
+                            <div class="name-time">24网络工程1班 王润红<span>学号：24215220107 · 美食达人</span></div>
+                        </div>
+                        <div class="review-text">“晴王葡萄太惊艳了！无籽脆甜，淡淡花香，果肉紧实，一下炫完一整串~”</div>
+                        <div class="review-stats">
+                            <div class="likes"><i class="fas fa-heart"></i> 2.3w</div>
+                            <div class="views"><i class="fas fa-eye"></i> 5.7w次浏览</div>
+                            <div class="likes"><i class="fas fa-comment"></i> 421</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 20px; margin-top: 36px; flex-wrap: wrap;">
+                <div
+                    style="background: #ffffffcc; backdrop-filter: blur(4px); border-radius: 60px; padding: 8px 24px; font-size: 14px; color: #6f9e7c;">
+                    <i class="fas fa-check-circle"></i> 好评率 99.8%</div>
+                <div
+                    style="background: #ffffffcc; backdrop-filter: blur(4px); border-radius: 60px; padding: 8px 24px; font-size: 14px; color: #e67e22;">
+                    <i class="fas fa-users"></i> 10w+ 用户真实分享</div>
+                <div
+                    style="background: #ffffffcc; backdrop-filter: blur(4px); border-radius: 60px; padding: 8px 24px; font-size: 14px; color: #2c4b35;">
+                    <i class="fas fa-leaf"></i> 新鲜直达 口碑之选</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>购物指南</h4>
+                    <ul>
+                        <li><a href="#">购物流程</a></li>
+                        <li><a href="#">配送方式</a></li>
+                        <li><a href="#">支付方式</a></li>
+                        <li><a href="#">配送运费</a></li>
+                        <li><a href="#">配送时间</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">平台规则</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">问题反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>售后服务</h4>
+                    <ul>
+                        <li><a href="#">售后政策</a></li>
+                        <li><a href="#">退款说明</a></li>
+                        <li><a href="#">取消订单</a></li>
+                        <li><a href="#">售后规则</a></li>
+                        <li><a href="#">在线客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务热线</h4>
+                    <div class="service-hotline">400-0000-000</div>
+                    <div class="work-time">工作时间 周一至周日 8:00-18:00</div>
+                    <div class="wechat-qr">
+                        <div class="qr-item">
+                            <div class="qr-placeholder"><i class="fab fa-weixin"></i></div><span>微信公众号</span>
+                        </div>
+                        <div class="qr-item">
+                            <div class="qr-placeholder"><i class="fas fa-qrcode"></i></div><span>APP下载</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links"><a href="#">关于我们</a> | <a href="#">帮助中心</a> | <a href="#">售后服务</a> | <a
+                        href="#">配送与验收</a> | <a href="#">商务合作</a> | <a href="#">搜索推荐</a></div>
+                <div>© CopyRight 小兔鲜儿 | 品质新鲜 售后无忧</div>
+            </div>
+            <div class="copyright">价格亲民 · 物流快捷 · 品质新鲜 · 售后无忧</div>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.getElementById('carouselSlides');
+        const slideItems = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('carouselDots');
+        let currentIndex = 0, totalSlides = slideItems.length, autoInterval;
+        function updateCarousel() { slides.style.transform = `translateX(-${currentIndex * 100}%)`; document.querySelectorAll('.dot').forEach((dot, idx) => { if (idx === currentIndex) dot.classList.add('active'); else dot.classList.remove('active'); }); }
+        function createDots() { dotsContainer.innerHTML = ''; for (let i = 0; i < totalSlides; i++) { const dot = document.createElement('div'); dot.classList.add('dot'); if (i === currentIndex) dot.classList.add('active'); dot.addEventListener('click', () => { currentIndex = i; updateCarousel(); resetAutoPlay(); }); dotsContainer.appendChild(dot); } }
+        function nextSlide() { currentIndex = (currentIndex + 1) % totalSlides; updateCarousel(); resetAutoPlay(); }
+        function prevSlide() { currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; updateCarousel(); resetAutoPlay(); }
+        function resetAutoPlay() { if (autoInterval) clearInterval(autoInterval); autoInterval = setInterval(() => nextSlide(), 5500); }
+        prevBtn.addEventListener('click', prevSlide); nextBtn.addEventListener('click', nextSlide); createDots(); resetAutoPlay();
+    </script>
+</body>
+
+</html>
